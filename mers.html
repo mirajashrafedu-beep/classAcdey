@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Academy - Your Path to Success</title>
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES AND RESETS
+           ============================================ */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        /* ============================================
+           HEADER AND NAVIGATION
+           ============================================ */
+        
+        header {
+            background-color: #0066cc;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .school-name {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .school-name:hover {
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+        
+        /* ============================================
+           SECTIONS (General Styling)
+           ============================================ */
+        
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* ============================================
+           HOME SECTION
+           ============================================ */
+        
+        #home {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+        
+        .banner-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            border-radius: 10px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .home h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        .home p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .welcome-btn {
+            background-color: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .welcome-btn:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .welcome-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-size: 18px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 28px;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #e0f0ff 0%, #b3d9ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        /* ============================================
+           COURSES SECTION
+           ============================================ */
+        
+        #courses {
+            background-color: #f9f9f9;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 5px solid #0066cc;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .course-card h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .course-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        
+        #contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0052a3;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+        
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .error-message {
+            color: #d9534f;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        
+        footer {
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN (Mobile)
+           ============================================ */
+        
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                background-color: #0052a3;
+                padding: 20px;
+                border-radius: 0 0 5px 5px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            /* Home section adjustments */
+            .home h1 {
+                font-size: 32px;
+            }
+            
+            .home p {
+                font-size: 16px;
+            }
+            
+            .banner-image {
+                height: 200px;
+                font-size: 18px;
+            }
+            
+            /* About section adjustments */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .about-image {
+                height: 250px;
+            }
+            
+            /* Section title adjustments */
+            .section-title {
+                font-size: 28px;
+            }
+            
+            /* Course cards adjustments */
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Form adjustments */
+            .contact-container {
+                padding: 20px;
+            }
+            
+            section {
+                padding: 40px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 20px;
+            }
+            
+            .home h1 {
+                font-size: 24px;
+            }
+            
+            .home p {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            nav a {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER WITH NAVIGATION
+         ============================================ -->
+    <header>
+        <div class="header-container">
+            <!-- School name/logo -->
+            <a href="#home" class="school-name">📚 Modern Academy</a>
+            
+            <!-- Navigation menu -->
+            <nav id="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#courses">Courses</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <!-- Mobile menu toggle button -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HOME SECTION
+         ============================================ -->
+    <section id="home" class="home">
+        <h1>Welcome to Modern Academy</h1>
+        <p>Your Path to Success and Excellence in Education</p>
+        
+        <!-- Interactive banner image -->
+        <div class="banner-image">
+            🎓 Quality Education Awaits
+        </div>
+        
+        <!-- Interactive button to display welcome message -->
+        <button class="welcome-btn" id="welcomeBtn">Click to See Welcome Message</button>
+        
+        <!-- Welcome message that appears on button click -->
+        <div class="welcome-message" id="welcomeMessage">
+            🌟 Welcome to Modern Academy! We are committed to providing quality education and fostering excellence in all our students. Join us on your journey to success!
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        
+        <div class="about-content">
+            <!-- About text -->
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>
+                    Modern Academy is a leading educational institution dedicated to providing high-quality education 
+                    and fostering the academic and personal development of our students. With a team of experienced educators, 
+                    we create a nurturing environment where every student can thrive.
+                </p>
+                <p>
+                    Our mission is to empower students with knowledge, skills, and values that will help them succeed 
+                    in their future endeavors. We believe in a holistic approach to education that goes beyond academics 
+                    to develop well-rounded individuals.
+                </p>
+                <p>
+                    Since our establishment, we have been committed to excellence in education and have helped thousands 
+                    of students achieve their dreams and reach their full potential.
+                </p>
+            </div>
+            
+            <!-- About image placeholder -->
+            <div class="about-image">
+                🏫
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         COURSES SECTION
+         ============================================ -->
+    <section id="courses">
+        <h2 class="section-title">Our Courses</h2>
+        
+        <!-- Course cards grid -->
+        <div class="courses-grid">
+            <!-- Course 1: Mathematics -->
+            <div class="course-card">
+                <div class="course-icon">🔢</div>
+                <h3>Mathematics</h3>
+                <p>
+                    Master the fundamentals of algebra, geometry, calculus, and statistics. 
+                    Develop problem-solving skills and logical thinking that are essential for success.
+                </p>
+            </div>
+            
+            <!-- Course 2: Science -->
+            <div class="course-card">
+                <div class="course-icon">🔬</div>
+                <h3>Science</h3>
+                <p>
+                    Explore physics, chemistry, and biology. Conduct experiments, understand natural phenomena, 
+                    and develop a deeper appreciation for the world around us.
+                </p>
+            </div>
+            
+            <!-- Course 3: English -->
+            <div class="course-card">
+                <div class="course-icon">📖</div>
+                <h3>English Literature</h3>
+                <p>
+                    Improve your reading and writing skills through classic and contemporary literature. 
+                    Learn effective communication and critical thinking through language.
+                </p>
+            </div>
+            
+            <!-- Course 4: Computer Science -->
+            <div class="course-card">
+                <div class="course-icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>
+                    Learn programming, web development, and digital literacy. Prepare yourself for 
+                    the technology-driven world with hands-on coding projects.
+                </p>
+            </div>
+            
+            <!-- Course 5: History -->
+            <div class="course-card">
+                <div class="course-icon">🏛️</div>
+                <h3>History</h3>
+                <p>
+                    Discover the events, people, and cultures that shaped our world. 
+                    Gain insights into how past events influence the present and future.
+                </p>
+            </div>
+            
+            <!-- Course 6: Arts & Creativity -->
+            <div class="course-card">
+                <div class="course-icon">🎨</div>
+                <h3>Arts & Creativity</h3>
+                <p>
+                    Express yourself through visual arts, music, and creative writing. 
+                    Develop your artistic talents and explore your creative potential.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <!-- Contact form container -->
+        <div class="contact-container">
+            <form id="contactForm">
+                <!-- Name field -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    <span class="error-message" id="nameError">Name is required</span>
+                </div>
+                
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <span class="error-message" id="emailError">Valid email is required</span>
+                </div>
+                
+                <!-- Message field -->
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+                    <span class="error-message" id="messageError">Message is required</span>
+                </div>
+                
+                <!-- Submit button -->
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <p>&copy; 2026 Modern Academy. All rights reserved.</p>
+        <p>Educating minds, Inspiring futures.</p>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ============================================
+        // MOBILE MENU TOGGLE
+        // ============================================
+        
+        // Get the menu toggle button and navbar elements
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+        
+        // Add click event to toggle menu visibility
+        menuToggle.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+        });
+        
+        // Close menu when a navigation link is clicked
+        const navLinks = navbar.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navbar.classList.remove('active');
+            });
+        });
+        
+        // ============================================
+        // WELCOME MESSAGE BUTTON
+        // ============================================
+        
+        // Get the welcome button and message elements
+        const welcomeBtn = document.getElementById('welcomeBtn');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        
+        // Add click event to show/hide welcome message
+        welcomeBtn.addEventListener('click', function() {
+            // Toggle the display of the welcome message
+            if (welcomeMessage.style.display === 'none' || welcomeMessage.style.display === '') {
+                welcomeMessage.style.display = 'block';
+                welcomeBtn.textContent = 'Hide Welcome Message';
+            } else {
+                welcomeMessage.style.display = 'none';
+                welcomeBtn.textContent = 'Click to See Welcome Message';
+            }
+        });
+        
+        // ============================================
+        // CONTACT FORM VALIDATION
+        // ============================================
+        
+        // Get the contact form element
+        const contactForm = document.getElementById('contactForm');
+        
+        // Add submit event listener to validate form
+        contactForm.addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            
+            // Get form input values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Get error message elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+            
+            // Reset all error messages (hide them)
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            messageError.style.display = 'none';
+            
+            // Flag to check if form is valid
+            let isValid = true;
+            
+            // Validate name field
+            if (name === '') {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email field
+            // Regular expression to check if email format is valid
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate message field
+            if (message === '') {
+                messageError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // If form is valid, show success message and reset form
+            if (isValid) {
+                // Show success alert
+                alert('✅ Thank you for your message! We will get back to you soon.\n\nName: ' + name + '\nEmail: ' + email);
+                
+                // Clear all form fields
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
